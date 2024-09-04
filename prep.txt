@@ -1,0 +1,19 @@
+Initial notes to get started on prep for CSE-299
+
+Initial ideas:
+
+Chatbot:
+using RAG, web scraping, and/database connector library, or otherwise, 
+that can pull data from RDS and help students advise, create schedules, and solve basic queries (related to NSU).
+
+LLM Models considered:
+- Llama 3.1
+- Phi3 mini (lightweight)
+(NO UNCENSORED MODELS/WEIGHTFILES LIKE DOLPHIN)
+
+if possible:
+- add image detection using models like Llava 3.1.
+
+add frontend using react, or frontend implementations you already know to create an app, like using Java's swing or something else.
+
+concept: being prepared and in files.
