@@ -9,11 +9,12 @@
 #### Text to Audio using Image Processing:
 
 - The idea is to use an existing image processing library like **Firebase ML Kit** or **Google's Tesseract OCR** for text recognition from images. The user would capture an image of the text using the camera and convert the recognized characters into audio using Flutter's **Text-to-Speech (TTS)** plugin. 
-*(Optionally, for Braille, libraries like **OpenCV** (to detect circles/bumps and process the grascale image) and trying to find niche libraries to handle the processing may be the best bet, although this may be **obsolete** as almost anything available **in Braille** may also be available in **plain text**)*
+*(Optionally, for Braille, libraries like **OpenCV** (to detect circles/bumps and process the grayscale image) and trying to find niche libraries to handle the processing may be the best bet, although this may be **obsolete** as almost anything available **in Braille** may also be available in **plain text**)*
 
 - **Planned usage API/Library**:
 
   - **Firebase ML Vision** (for image recognition)
+  - **Google Tesseract** (OCR)
   - **flutter_tts** (for text-to-speech conversion)
 
 ---
