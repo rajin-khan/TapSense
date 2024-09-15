@@ -2,7 +2,7 @@
 
 - ## Main Idea: 
 
-- To build an all-in-one **accessibility app** (using **Flutter** for **cross-platform development**) for the **visually impaired** that contains features to make everyday tasks easier.
+- To build an all-in-one **accessibility app** (using **Flutter** for **cross-platform development**) for the **visually impaired** that contains features to make everyday tasks easier (potential name: **TapSense**).
 
 ### Section A:
 
