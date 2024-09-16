@@ -6,6 +6,7 @@
 - Lookout (Android, *https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.reveal&hl=en_GB&gl=US*)
 - BARD Mobile (Cross-Platform, *https://apps.apple.com/us/app/bard-mobile/id705229586*)
 - Voice Dream Scanner & Reader (iOS, *https://www.perkins.org/resource/voice-dream-scanner-ocr-app/*)
+- Legere Scanner & Reader (Android, *https://legere.io*)
 
 ### Section B:
 
