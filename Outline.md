@@ -49,7 +49,7 @@
 
 ### Section D:
 
-#### Nutritional Analysis (Object Detection with Audio Feedback):
+#### Nutritional Analysis (Object Detection with Audio Feedback/Label Scanning):
 
 - For this, we may use object detection models like **TensorFlow Lite** or **Firebase ML Kit** for identifying food items. Once identified, we can integrate a nutritional database API like **Edamam** or **Nutritionix** to fetch nutritional information and provide audio feedback with **flutter_tts**.
 
