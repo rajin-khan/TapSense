@@ -5,7 +5,9 @@
 ---
 
 <h1 align="center">Timeline Overview</h1>
-
+<h3 align="center">
+  <a href="https://github.com/rajin-khan/flutter-self" target="_blank" rel="noreferrer">(Progress & Projects while learning Flutter can be found in this repo)</a>
+</h3>
 ---
 
 ### Week 1 (18th Sept – 24th Sept)
