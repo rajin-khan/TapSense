@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="https://i.imgur.com/IXTcRvh.png" width="400"/>
+</p>
+
+<h1 align="center">An Accessibility App for the visually impaired</h1>
+
+---
+
+---
+
 ![Profile banner](https://i.imgur.com/xPkiNua.png)
 
 <h5 align="center">(TENTATIVE)</h5>
@@ -8,6 +18,7 @@
 <h3 align="center">
   <a href="https://github.com/rajin-khan/flutter-self" target="_blank" rel="noreferrer">(Progress & Projects while learning Flutter can be found in this repo)</a>
 </h3>
+
 ---
 
 ### Week 1 (18th Sept – 24th Sept)
