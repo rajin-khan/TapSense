@@ -51,6 +51,34 @@ Firebase ML Vision is a tool by **Google’s Firebase platform** that lets devs 
 
 ---
 
+### The alternate choice: *Google Tesseract OCR:*
+
+**Google Tesseract OCR** is an open-source OCR engine that's been around for a while and is known for its flexibility and accuracy in recognizing text in images. It's offers a bit more control than Firebase ML Vision, meaning we have to do more of the work, but it offers more customization, especially when dealing with complex documents or multiple languages, which is why it was considered at all in the first place.
+
+#### **Working methodology for Tesseract OCR:**:
+
+#### *A. Installation and setup:*
+
+   Tesseract is a standalone tool, so we have to install it separately and set it up to work within the Flutter app. Once we have it configured, we can call it to perform OCR on any images we capture within the app.
+
+#### *B. Image Pre-processing:* 
+
+   The main thing about Tesseract is that it performs best when the images are pre-processed properly. That includes tasks like:
+
+   - **Grayscale conversion** and **thresholding**, just like in general OCR, to clean up the image.
+   - **Deskewing**: Correcting any tilt in the image so that the text is properly aligned.
+   - **Noise removal**: Getting rid of background noise that might confuse the OCR engine.
+
+#### *C. Character Recognition:*
+
+   Tesseract then goes through the image and identifies each character by comparing the shapes of the letters in the image to known characters in its database. Tesseract is known for supporting a wide variety of languages, which is really useful if we ever need to expand the app's language support.
+
+#### *D. Output:*
+
+   Once Tesseract recognizes the text, it outputs it as editable text. This can be saved, displayed in the app, or converted to audio (which is one of the key features we'll be working on). The advantage of Tesseract is that it’s highly customizable and works well with different languages and formats, but it might be slower and require more pre-processing than Firebase ML Vision.
+
+---
+
 Videos used for reference on OCR starting point:
 
 *https://www.youtube.com/watch?v=or8AcS6y1xg*
