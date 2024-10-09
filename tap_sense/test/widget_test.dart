@@ -8,12 +8,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:tap_sense/main.dart';
+/* import 'package:tap_sense/main.dart';
+  uncomment this part to make app work
+*/
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    /* await tester.pumpWidget(const MyApp());
+      uncomment this part to make app work
+    */
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
