@@ -29,11 +29,30 @@ OCR, or **Optical Character Recognition**, is a technology that allows computers
 ---
 
 
+## THE TWO CHOICES:
 
+### **Firebase ML Vision:**
 
+Firebase ML Vision is a tool by **Google’s Firebase platform** that lets devs add machine learning capabilities to their apps without needing to build complex models from scratch. It includes stuff like **image labeling**, **face detection**, and most importantly for our project, **text recognition (OCR)**.
 
+#### **Working methodology for Firebase ML Vision:**:
+
+#### *A. Integration with Flutter:* 
+
+   Firebase ML Vision is easy to integrate with Flutter (which we will be using it for our project). Once Firebase is set up, we just need to add the necessary dependencies and connect the app to Firebase's ML Kit. Afterward, we can use its **on-device OCR capabilities** to recognize text from images locally without requiring an internet connection. This is great because it’s fast and doesn’t rely on network speed.
+
+#### *B. Text Recognition:* 
+
+   In the case of OCR, Firebase ML Vision scans the image, looks for recognizable text, and converts it into a machine-readable format. This works for printed text in documents, signs, and labels. One of the cool features of Firebase ML Vision is that it’s optimized for mobile apps, meaning it’s lightweight and can work offline, making it perfect for fast, real-time text recognition.
+
+#### *C. How it fits in our app:*  
+
+   By using Firebase ML Vision for text recognition, we can let users take a picture of something (like a printed document) and quickly convert the image into text that they can listen to or save for later. The fact that Firebase does a lot of the heavy lifting makes it easier for us to focus on the app's user interface and experience (along with the implementation).
+
+---
 
 Videos used for reference on OCR starting point:
-###### https://www.youtube.com/watch?v=or8AcS6y1xg
 
-Additional learning material concepts were also understood using ChatGPT.
+*https://www.youtube.com/watch?v=or8AcS6y1xg*
+
+*Additional learning material concepts were also understood using ChatGPT.*
