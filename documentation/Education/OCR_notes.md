@@ -31,7 +31,7 @@ OCR, or **Optical Character Recognition**, is a technology that allows computers
 
 ## THE TWO CHOICES:
 
-### **Firebase ML Vision:**
+###  <a href="https://firebase.google.com/docs/ml-kit" target="_blank" rel="noreferrer"> <img src="https://koenig-media.raywenderlich.com/uploads/2018/08/ML-Kit-for-Firebase-badge-light.png" alt="Firebase ML" height="30"/></a> **Firebase ML Vision:**
 
 Firebase ML Vision is a tool by **Google’s Firebase platform** that lets devs add machine learning capabilities to their apps without needing to build complex models from scratch. It includes stuff like **image labeling**, **face detection**, and most importantly for our project, **text recognition (OCR)**.
 
@@ -51,7 +51,8 @@ Firebase ML Vision is a tool by **Google’s Firebase platform** that lets devs 
 
 ---
 
-### The alternate choice: *Google Tesseract OCR:*
+### The alternate choice: 
+### <a href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noreferrer"> <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" alt="Tesseract OCR repo" height="30"/></a> *Google Tesseract OCR:*
 
 **Google Tesseract OCR** is an open-source OCR engine that's been around for a while and is known for its flexibility and accuracy in recognizing text in images. It's offers a bit more control than Firebase ML Vision, meaning we have to do more of the work, but it offers more customization, especially when dealing with complex documents or multiple languages, which is why it was considered at all in the first place.
 
