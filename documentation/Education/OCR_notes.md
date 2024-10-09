@@ -96,5 +96,8 @@ All things considered, as mentioned earlier because of its ease of use and avail
 Videos used for reference on OCR starting point:
 
 *https://www.youtube.com/watch?v=or8AcS6y1xg*
+*https://www.youtube.com/watch?v=pv_fhJUmuvk&list=PLdwSRf36tYhO8pYTWmnubGg7YJg8VhFgE*
+*https://www.youtube.com/watch?v=SgwLU55R14s*
+*https://www.youtube.com/watch?v=GmhkXH8fO-A*
 
 *Additional learning material concepts were also understood using ChatGPT.*
