@@ -23,18 +23,17 @@ class WelcomeScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),  
           ),
-          const SizedBox(height: 15),
-          OutlinedButton.icon(
+          const SizedBox(height: 10),
+          TextButton(
             onPressed: () {},
-            style: OutlinedButton.styleFrom(
+            style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               textStyle: GoogleFonts.poppins(
                 fontSize: 18,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w900,
               ),
             ),
-            icon: const Icon(Icons.keyboard_arrow_right_rounded),
-            label: const Text('Let\'s go!'),
+            child: const Text('Let\'s go!'),
           ),
         ],
       ),
