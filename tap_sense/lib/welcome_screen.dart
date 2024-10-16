@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  const WelcomeScreen(this.startApp, {super.key});
+
+  final void Function() startApp;
 
   @override
   Widget build(context) {
@@ -21,11 +23,11 @@ class WelcomeScreen extends StatelessWidget {
               color: const Color.fromARGB(255, 255, 255, 255),
               fontSize: 20,
               fontWeight: FontWeight.w600,
-            ),  
+            ),
           ),
           const SizedBox(height: 10),
           TextButton(
-            onPressed: () {},
+            onPressed: startApp,
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               textStyle: GoogleFonts.poppins(
