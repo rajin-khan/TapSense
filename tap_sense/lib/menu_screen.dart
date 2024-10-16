@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatelessWidget { //remember to convert to stateful widget and add buttons for all four sections
   const MenuScreen({super.key});
 
   @override
