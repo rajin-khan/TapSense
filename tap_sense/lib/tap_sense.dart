@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:tap_sense/welcome_screen.dart';
-import 'package:tap_sense/menu_screen.dart';
+import 'package:tap_sense/sections/welcome_screen.dart';
+import 'package:tap_sense/sections/menu_screen.dart';
 
 class TapSense extends StatefulWidget {
   const TapSense({super.key});
