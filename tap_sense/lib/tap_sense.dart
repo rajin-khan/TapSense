@@ -26,7 +26,7 @@ class _TapSenseState extends State<TapSense> {
     Widget screenWidget = WelcomeScreen(switchScreen);
 
     if (activeScreen == 'menu-screen') {
-      screenWidget = const MenuScreen();
+      screenWidget = MenuScreen(() {});
     }
     return MaterialApp(
       home: Scaffold(
