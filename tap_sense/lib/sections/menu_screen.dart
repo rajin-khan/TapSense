@@ -6,7 +6,7 @@ import 'package:tap_sense/sections/nutrition/nutrition_screen.dart';
 import 'package:tap_sense/sections/productivity/productivity_screen.dart';
 
 class MenuScreen extends StatefulWidget {
-  MenuScreen(this.changeScreen, {super.key});
+  const MenuScreen(this.changeScreen, {super.key});
   final void Function() changeScreen;
   @override
   State<MenuScreen> createState() {
@@ -35,19 +35,25 @@ class _MenuScreenState extends State<MenuScreen> {
     });
   }
 
+  void restartApp() {
+    setState(() {
+      activeScreen = 'menu-screen'; // Default to menu
+    });
+  }
+
   @override
   Widget build(context) {
     Widget screenWidget = buildMenu();
 
     // Determine which screen to show based on activeScreen
     if (activeScreen == 'education-screen') {
-      screenWidget = const EducationScreen();
+      screenWidget = EducationScreen(restartApp);
     } else if (activeScreen == 'productivity-screen') {
-      screenWidget = const ProductivityScreen();
+      screenWidget = ProductivityScreen(restartApp);
     } else if (activeScreen == 'navigation-screen') {
-      screenWidget = const NavigationScreen();
+      screenWidget = NavigationScreen(restartApp);
     } else if (activeScreen == 'nutrition-screen') {
-      screenWidget = const NutritionScreen();
+      screenWidget = NutritionScreen(restartApp);
     } else {
       screenWidget = buildMenu(); // Build Menu screen
     }
@@ -76,7 +82,7 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 280),
+        const SizedBox(height: 300),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -142,7 +148,7 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 320),
+        const SizedBox(height: 300),
         TextButton.icon(
           onPressed: () {},
           style: TextButton.styleFrom(
