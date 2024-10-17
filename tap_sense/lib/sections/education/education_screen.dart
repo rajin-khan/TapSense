@@ -2,33 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EducationScreen extends StatelessWidget {
-  const EducationScreen({super.key});
+  const EducationScreen(this.onRestart, {super.key});
+  final void Function() onRestart;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 0, 0, 0),
-              Color.fromARGB(255, 60, 40, 3),
-              Color.fromARGB(255, 72, 1, 33),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'EDUCATION SCREEN',
+          style: GoogleFonts.poppins(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
           ),
+          textAlign: TextAlign.center,
         ),
-        child: Center(
-          child: Text(
-            'EDUCATION SCREEN',
-            style: GoogleFonts.poppins(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
+        const SizedBox(height: 20),
+        TextButton(
+          onPressed: onRestart,
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+              textStyle: GoogleFonts.poppins(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
           ),
+          child: const Text('BACK'),
         ),
-      ),
+      ],
     );
   }
 }
