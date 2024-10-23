@@ -21,6 +21,10 @@ class EducationScreen extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
+
+        //enter image picker widget here
+
+        const SizedBox(height: 20),
         TextButton(
           onPressed: onRestart,
           style: TextButton.styleFrom(
