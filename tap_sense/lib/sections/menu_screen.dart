@@ -82,7 +82,7 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 300),
+        const SizedBox(height: 260),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -148,7 +148,7 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 300),
+        const SizedBox(height: 290),
         TextButton.icon(
           onPressed: () {},
           style: TextButton.styleFrom(
