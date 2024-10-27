@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_sense/sections/education/education_screen.dart';
 import 'package:tap_sense/sections/navigation/navigation_screen.dart';
@@ -18,6 +19,8 @@ var num = 0;
 
 class _MenuScreenState extends State<MenuScreen> {
   var activeScreen = 'menu-screen';
+
+  final FlutterTts flutterTts = FlutterTts();
 
   void switchScreen() {
     setState(() {
@@ -149,8 +152,10 @@ class _MenuScreenState extends State<MenuScreen> {
           ],
         ),
         const SizedBox(height: 290),
-        TextButton.icon(
-          onPressed: () {},
+        TextButton.icon( //screen reader
+          onPressed: () {
+            flutterTts.speak("Pick one of the four corners: Education, Productivity, Navigation, Nutrition");
+          },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
             textStyle:

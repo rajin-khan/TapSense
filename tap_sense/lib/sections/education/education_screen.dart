@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -14,13 +15,15 @@ class EducationScreen extends StatefulWidget {
 }
 
 class _EducationScreenState extends State<EducationScreen> {
-
   File? _imageFile; //creates the image file
 
   String? extractedText; //for storing the text after processing
   String scannedText = ''; //placeholder for output text on screen
 
-  Future<void> _pickImage() async { //image picker function
+  final FlutterTts flutterTts = FlutterTts();
+
+  Future<void> _pickImage() async {
+    //image picker function
     //image picker
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -32,7 +35,8 @@ class _EducationScreenState extends State<EducationScreen> {
     }
   }
 
-  Future<void> _processImage() async { //image processor
+  Future<void> _processImage() async {
+    //image processor
     //OCR processor
     final inputImage = InputImage.fromFilePath(_imageFile!.path);
     final textRecognizer = TextRecognizer();
@@ -41,7 +45,8 @@ class _EducationScreenState extends State<EducationScreen> {
     extractedText = recognizedText.text;
   }
 
-  void _processedOutput() { //for showing the processed output
+  void _processedOutput() {
+    //for showing the processed output
     setState(() {
       scannedText = extractedText!;
     });
@@ -53,7 +58,8 @@ class _EducationScreenState extends State<EducationScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text( //header
+        Text(
+          //header
           'ADD AN IMAGE',
           style: GoogleFonts.poppins(
             color: const Color.fromARGB(255, 255, 255, 255),
@@ -63,7 +69,8 @@ class _EducationScreenState extends State<EducationScreen> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 18),
-        TextButton.icon( //button for image picking
+        TextButton.icon(
+          //button for image picking
           onPressed: _pickImage,
           label: const Icon(
             Icons.add,
@@ -71,7 +78,8 @@ class _EducationScreenState extends State<EducationScreen> {
           ),
         ),
         const SizedBox(height: 4),
-        TextButton( //output viewer button
+        TextButton(
+          //output viewer button
           onPressed: _processedOutput,
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
@@ -82,7 +90,8 @@ class _EducationScreenState extends State<EducationScreen> {
           ),
           child: const Text('SHOW OUTPUT'),
         ),
-        Container( //output section
+        Container(
+          //output section
           height: 550,
           padding: const EdgeInsets.all(5),
           child: SingleChildScrollView(
@@ -96,8 +105,25 @@ class _EducationScreenState extends State<EducationScreen> {
             ),
           ),
         ),
-        const SizedBox(height: 20),
-        TextButton( //back button
+        const SizedBox(height: 10),
+        TextButton.icon(
+          //screen reader
+          onPressed: () {
+            flutterTts.speak( //check utterance id to verify working
+              scannedText,
+            );
+          },
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            textStyle:
+                GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+          icon: const Icon(Icons.multitrack_audio_rounded),
+          label: const Text('READ SCREEN'),
+        ),
+        const SizedBox(height: 5),
+        TextButton(
+          //back button
           onPressed: widget.onRestart,
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
