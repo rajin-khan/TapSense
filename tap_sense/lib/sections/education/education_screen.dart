@@ -14,10 +14,13 @@ class EducationScreen extends StatefulWidget {
 }
 
 class _EducationScreenState extends State<EducationScreen> {
-  File? _imageFile; //creates the image file
-  String? extractedText;
 
-  Future<void> _pickImage() async {
+  File? _imageFile; //creates the image file
+
+  String? extractedText; //for storing the text after processing
+  String scannedText = ''; //placeholder for output text on screen
+
+  Future<void> _pickImage() async { //image picker function
     //image picker
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -29,23 +32,20 @@ class _EducationScreenState extends State<EducationScreen> {
     }
   }
 
-  Future<void> _processImage() async {
+  Future<void> _processImage() async { //image processor
     //OCR processor
     final inputImage = InputImage.fromFilePath(_imageFile!.path);
     final textRecognizer = TextRecognizer();
     final RecognizedText recognizedText =
         await textRecognizer.processImage(inputImage);
     extractedText = recognizedText.text;
-    print(extractedText); //print to terminal (execute to separate screen later)
-    //return extractedText
   }
 
-  /*String? processedOutput() {
+  void _processedOutput() { //for showing the processed output
     setState(() {
-      extractedText == null ? 'Pick image' : extractedText!;
+      scannedText = extractedText!;
     });
-    return extractedText;
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +53,8 @@ class _EducationScreenState extends State<EducationScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          'EDUCATION SCREEN',
+        Text( //header
+          'ADD AN IMAGE',
           style: GoogleFonts.poppins(
             color: const Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
@@ -62,17 +62,42 @@ class _EducationScreenState extends State<EducationScreen> {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 20),
-        TextButton(
+        const SizedBox(height: 18),
+        TextButton.icon( //button for image picking
           onPressed: _pickImage,
-          child: const Icon(
-            Icons.add_a_photo_outlined,
+          label: const Icon(
+            Icons.add,
             color: Colors.white,
           ),
         ),
-        //Text(processedOutput()),
+        const SizedBox(height: 4),
+        TextButton( //output viewer button
+          onPressed: _processedOutput,
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            textStyle: GoogleFonts.poppins(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          child: const Text('SHOW OUTPUT'),
+        ),
+        Container( //output section
+          height: 550,
+          padding: const EdgeInsets.all(5),
+          child: SingleChildScrollView(
+            child: Text(
+              scannedText,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+          ),
+        ),
         const SizedBox(height: 20),
-        TextButton(
+        TextButton( //back button
           onPressed: widget.onRestart,
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
