@@ -176,6 +176,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.0"
+  google_mlkit_object_detection:
+    dependency: "direct main"
+    description:
+      name: google_mlkit_object_detection
+      sha256: "56f196c03a1a7b0986efac0e48ab4b82a35645de3f1f2eebc08e308ad93db469"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.14.0"
   google_mlkit_text_recognition:
     dependency: "direct main"
     description:
