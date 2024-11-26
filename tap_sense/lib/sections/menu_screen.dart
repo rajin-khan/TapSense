@@ -151,7 +151,7 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 290),
+        const SizedBox(height: 150),
         TextButton.icon( //screen reader
           onPressed: () {
             flutterTts.speak("Pick one of the four corners: Education, Productivity, Navigation, Nutrition");

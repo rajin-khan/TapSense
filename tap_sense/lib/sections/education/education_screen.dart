@@ -92,7 +92,7 @@ class _EducationScreenState extends State<EducationScreen> {
         ),
         Container(
           //output section
-          height: 550,
+          height: 380,
           padding: const EdgeInsets.all(5),
           child: SingleChildScrollView(
             child: Text(
