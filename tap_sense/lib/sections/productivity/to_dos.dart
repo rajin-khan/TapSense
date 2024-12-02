@@ -18,7 +18,6 @@ class ToDos extends StatefulWidget {
 }
 
 class _ToDosState extends State<ToDos> {
-  String scannedText = ''; //placeholder for output text on screen
 
   final FlutterTts flutterTts = FlutterTts();
 

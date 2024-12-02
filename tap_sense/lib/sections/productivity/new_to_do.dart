@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tap_sense/models/to_do.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 
 class NewToDo extends StatefulWidget {
   const NewToDo({super.key, required this.onAddToDo});
@@ -16,8 +17,47 @@ class NewToDo extends StatefulWidget {
 class _NewToDoState extends State<NewToDo> {
   final _titleController = TextEditingController();
 
+  final SpeechToText _speechToText =
+      SpeechToText(); //creates speechtotext object
+  bool _speechEnabled = false; //bc it's not listening initially
+  String _wordsSpoken = "";
+
+  @override
+  void initState() {
+    super.initState();
+    initSpeech(); //call the stt object initializer
+  }
+
+  void initSpeech() async {
+    _speechEnabled =
+        await _speechToText.initialize(); //we wait for it to initialize
+    setState(() {});
+  }
+
+  void _startListening() async {
+    await _speechToText.listen(
+        onResult: _onSpeechResult); //as we listen, we show the confidence level
+    setState(() {
+      //_confidenceLevel = 0;
+    });
+  }
+
+  void _stopListening() async {
+    await _speechToText.stop();
+    setState(() {});
+  }
+
+  void _onSpeechResult(result) {
+    //the method that stores the spoken words
+    setState(() {
+      _wordsSpoken = "${result.recognizedWords}";
+      //_confidenceLevel = result.confidence;
+    });
+    //print(_wordsSpoken);
+  }
+
   void _submitToDoData() {
-    if (_titleController.text.trim().isEmpty) {
+    if (_wordsSpoken.isEmpty) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -39,9 +79,12 @@ class _NewToDoState extends State<NewToDo> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Okay', style: GoogleFonts.poppins(
-              color: const Color.fromARGB(255, 255, 255, 255),
-            ),),
+              child: Text(
+                'Okay',
+                style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                ),
+              ),
             ),
           ],
         ),
@@ -50,7 +93,7 @@ class _NewToDoState extends State<NewToDo> {
     }
 
     widget.onAddToDo(
-      ToDo(title: _titleController.text),
+      ToDo(title: _wordsSpoken),
     );
     Navigator.pop(context);
   }
@@ -68,20 +111,8 @@ class _NewToDoState extends State<NewToDo> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: _titleController, //for handling input
-            maxLength: 50,
-            //keyboardType: TextInputType.text, //basic text type by default, so no need to set this separately
-            decoration: InputDecoration(
-              label: Text(
-                'Title',
-                style: GoogleFonts.poppins(
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+          Text(
+            _wordsSpoken, //this is where we show the words being recognized
             style: GoogleFonts.poppins(
               color: const Color.fromARGB(255, 255, 255, 255),
               fontSize: 12,
@@ -89,10 +120,32 @@ class _NewToDoState extends State<NewToDo> {
             ),
           ),
           const SizedBox(height: 30),
-
-          
-
-          const SizedBox(height: 30),
+          IconButton(
+            onPressed:
+                _speechToText.isListening ? _stopListening : _startListening,
+            icon: Icon(
+              _speechToText.isNotListening
+                  ? Icons.mic_off_rounded
+                  : Icons.mic_rounded,
+              color: Colors.white,
+              size: 40,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            _speechToText
+                    .isListening //ternary operator to show one thing if listening
+                ? "Listening..."
+                : _speechEnabled //another nested ternary operator
+                    ? "Tap the microphone to input an item!"
+                    : "Speech not available",
+            style: GoogleFonts.poppins(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 50),
           Row(
             children: [
               TextButton(
