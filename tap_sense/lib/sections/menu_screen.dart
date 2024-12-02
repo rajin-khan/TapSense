@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_sense/sections/education/education_screen.dart';
 import 'package:tap_sense/sections/navigation/navigation_screen.dart';
 import 'package:tap_sense/sections/nutrition/nutrition_screen.dart';
-import 'package:tap_sense/sections/productivity/productivity_screen.dart';
+import 'package:tap_sense/sections/productivity/to_dos.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(this.changeScreen, {super.key});
@@ -52,7 +52,7 @@ class _MenuScreenState extends State<MenuScreen> {
     if (activeScreen == 'education-screen') {
       screenWidget = EducationScreen(restartApp);
     } else if (activeScreen == 'productivity-screen') {
-      screenWidget = ProductivityScreen(restartApp);
+      screenWidget = ToDos(restartApp);
     } else if (activeScreen == 'navigation-screen') {
       screenWidget = NavigationScreen(restartApp);
     } else if (activeScreen == 'nutrition-screen') {
