@@ -133,7 +133,6 @@ class _ToDosState extends State<ToDos> {
               }
             }
             flutterTts.speak(spoken);
-            print(spoken);
           },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
