@@ -3,7 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_sense/sections/education/education_screen.dart';
 import 'package:tap_sense/sections/navigation/navigation_screen.dart';
-import 'package:tap_sense/sections/nutrition/nutrition_screen.dart';
+import 'package:tap_sense/sections/detection/detection_screen.dart';
 import 'package:tap_sense/sections/productivity/to_dos.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
       } else if (num == 3) {
         activeScreen = 'navigation-screen';
       } else if (num == 4) {
-        activeScreen = 'nutrition-screen';
+        activeScreen = 'detection-screen';
       } else {
         activeScreen = 'menu-screen'; // Default to menu
       }
@@ -55,8 +55,8 @@ class _MenuScreenState extends State<MenuScreen> {
       screenWidget = ToDos(restartApp);
     } else if (activeScreen == 'navigation-screen') {
       screenWidget = NavigationScreen(restartApp);
-    } else if (activeScreen == 'nutrition-screen') {
-      screenWidget = NutritionScreen(restartApp);
+    } else if (activeScreen == 'detection-screen') {
+      screenWidget = DetectionScreen(restartApp);
     } else {
       screenWidget = buildMenu(); // Build Menu screen
     }
@@ -147,14 +147,14 @@ class _MenuScreenState extends State<MenuScreen> {
                     fontSize: 12, fontWeight: FontWeight.bold),
               ),
               icon: const Icon(Icons.food_bank),
-              label: const Text('NUTRITION'),
+              label: const Text('DETECTION'),
             ),
           ],
         ),
         const SizedBox(height: 150),
         TextButton.icon( //screen reader
           onPressed: () {
-            flutterTts.speak("Pick one of the four corners: Education, Productivity, Navigation, Nutrition");
+            flutterTts.speak("Pick one of the four corners: Education, Productivity, Navigation, DETECTION");
           },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
