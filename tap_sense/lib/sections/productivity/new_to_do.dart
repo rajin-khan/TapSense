@@ -127,7 +127,7 @@ class _NewToDoState extends State<NewToDo> {
               _speechToText.isNotListening
                   ? Icons.mic_off_rounded
                   : Icons.mic_rounded,
-              color: Colors.white,
+              color: Colors.orange,
               size: 40,
             ),
           ),
@@ -167,6 +167,7 @@ class _NewToDoState extends State<NewToDo> {
                 onPressed: () {
                   _submitToDoData();
                 },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                 child: Text(
                   'Save To-Do',
                   style: GoogleFonts.poppins(

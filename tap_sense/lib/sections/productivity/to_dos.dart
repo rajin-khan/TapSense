@@ -105,14 +105,15 @@ class _ToDosState extends State<ToDos> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
-        IconButton(
-          onPressed: _openAddToDoOverlay,
-          icon: const Icon(
-            Icons.add_circle,
-            color: Colors.white,
-            size: 40,
-          ),
-        ),
+        ElevatedButton( 
+           onPressed: _openAddToDoOverlay,
+           style: ElevatedButton.styleFrom(
+             shape: const CircleBorder(),
+             padding: const EdgeInsets.all(15),
+             backgroundColor: Colors.black,
+           ),
+           child: const Icon(Icons.add_rounded, color: Colors.orange), // icon of the button
+         ),
         const SizedBox(height: 20),
         Expanded(
           //the expanded widget must be used here we are trying to display a list (listview) inside another list (the column widget)
