@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart';
+//import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:image_picker/image_picker.dart';
 
@@ -15,6 +16,12 @@ class NutritionScreen extends StatefulWidget {
 
 class _NutritionScreenState extends State<NutritionScreen> {
   File? _imageFile;
+
+  String? _objectName;
+  String outputObject = "";
+
+  double? _objectConfidence;
+  double outputConfidence = 0;
 
   Future<void> _pickImage() async {
     //image picker
@@ -48,7 +55,9 @@ class _NutritionScreenState extends State<NutritionScreen> {
       //final trackingId = detectedObject.trackingId;
 
       for (Label label in detectedObject.labels) {
-        print('${label.text} ${label.confidence}');
+        //print('${label.text} ${label.confidence}');
+        _objectName = label.text;
+        _objectConfidence = label.confidence;
       }
     }
 
@@ -59,27 +68,100 @@ class _NutritionScreenState extends State<NutritionScreen> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const SizedBox(height: 40),
         Text(
-          'NUTRITION SCREEN',
+          'OBJECT DETECTION',
           style: GoogleFonts.poppins(
             color: const Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 18),
-        TextButton.icon(
-          //button for image picking
-          onPressed: _pickImage,
-          label: const Icon(
-            Icons.add,
-            color: Colors.white,
+        const SizedBox(height: 20),
+        SizedBox(
+          width: 250,
+          height: 55,
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                outputObject = _objectName!;
+                outputConfidence = (_objectConfidence! * 100);
+              });
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.orange,
+            ),
+            child: Text(
+              'WHAT AM I LOOKING AT?',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: 15),
+            ),
           ),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 20),
+        Expanded(
+          child: Column(
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Centers the text widgets vertically
+            children: [
+              Text(
+                outputObject.toUpperCase(),
+                style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                "CONFIDENCE: ${outputConfidence.toStringAsPrecision(2)}%",
+                style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "(This works best if there is a single, defined subject in your image)",
+                style: GoogleFonts.poppins(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 20,),
+              SizedBox(
+                width: 160,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: _pickImage,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Icon(Icons.add_a_photo_rounded),
+                      Text(
+                        'PICK IMAGE',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
         TextButton(
           onPressed: widget.onRestart,
           style: TextButton.styleFrom(
