@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart';
-//import 'package:flutter_tts/flutter_tts.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:image_picker/image_picker.dart';
 
@@ -22,6 +22,8 @@ class _DetectionScreenState extends State<DetectionScreen> {
 
   double? _objectConfidence;
   double outputConfidence = 0;
+
+  final FlutterTts flutterTts = FlutterTts();
 
   Future<void> _pickImage() async {
     //image picker
@@ -88,6 +90,7 @@ class _DetectionScreenState extends State<DetectionScreen> {
               setState(() {
                 outputObject = _objectName!;
                 outputConfidence = (_objectConfidence! * 100);
+                flutterTts.speak("I'm ${outputConfidence.toStringAsPrecision(2)}% confident you're looking at $outputObject");
               });
             },
             style: ElevatedButton.styleFrom(
@@ -135,7 +138,9 @@ class _DetectionScreenState extends State<DetectionScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 width: 160,
                 height: 55,
@@ -160,6 +165,23 @@ class _DetectionScreenState extends State<DetectionScreen> {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 10),
+        TextButton.icon(
+          onPressed: () {
+            if (outputConfidence == 0) {
+              flutterTts.speak("You haven't picked an image for me to see. Pick one!");
+            } else {
+              flutterTts.speak("I'm ${outputConfidence.toStringAsPrecision(2)}% confident you're looking at $outputObject");
+            }
+          },
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            textStyle:
+                GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+          icon: const Icon(Icons.multitrack_audio_rounded),
+          label: const Text('READ SCREEN'),
         ),
         const SizedBox(height: 20),
         TextButton(
