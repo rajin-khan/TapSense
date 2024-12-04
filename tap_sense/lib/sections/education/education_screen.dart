@@ -18,7 +18,7 @@ class _EducationScreenState extends State<EducationScreen> {
   File? _imageFile; //creates the image file
 
   String? extractedText; //for storing the text after processing
-  String scannedText = ''; //placeholder for output text on screen
+  String scannedText = "Nothing scanned yet. Tap the button above to scan from an image!";
 
   final FlutterTts flutterTts = FlutterTts();
 
@@ -58,9 +58,9 @@ class _EducationScreenState extends State<EducationScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const SizedBox(height: 30),
         Text(
-          //header
-          'ADD AN IMAGE',
+          'TEXT RECOGNITION',
           style: GoogleFonts.poppins(
             color: const Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
@@ -69,39 +69,46 @@ class _EducationScreenState extends State<EducationScreen> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 18),
-        TextButton.icon(
-          //button for image picking
+        ElevatedButton(
           onPressed: _pickImage,
-          label: const Icon(
-            Icons.add,
-            color: Colors.white,
+          style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(15),
+            backgroundColor: Colors.black,
           ),
+          child: const Icon(Icons.add_rounded,
+              color: Colors.orange), // icon of the button
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 18),
         TextButton(
-          //output viewer button
           onPressed: _processedOutput,
           style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.orange,
+            padding: const EdgeInsets.all(10),
             textStyle: GoogleFonts.poppins(
-              fontSize: 12,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
           ),
           child: const Text('SHOW OUTPUT'),
         ),
-        Container(
-          //output section
-          height: 380,
-          padding: const EdgeInsets.all(5),
+        const SizedBox(height: 15),
+        Expanded(
           child: SingleChildScrollView(
-            child: Text(
-              scannedText,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  scannedText,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ],
             ),
           ),
         ),
@@ -109,7 +116,8 @@ class _EducationScreenState extends State<EducationScreen> {
         TextButton.icon(
           //screen reader
           onPressed: () {
-            flutterTts.speak( //check utterance id to verify working
+            flutterTts.speak(
+              //check utterance id to verify working
               scannedText,
             );
           },
