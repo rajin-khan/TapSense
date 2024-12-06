@@ -40,6 +40,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
   void restartApp() {
     setState(() {
+      flutterTts.speak("You are now back in the main menu.");
       activeScreen = 'menu-screen'; // Default to menu
     });
   }
@@ -101,6 +102,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 1;
                         switchScreen();
+                        flutterTts.speak('You have picked: Reader');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -129,6 +131,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 2;
                         switchScreen();
+                        flutterTts.speak('You have picked: TO-DO List. Itema are ordered with the oldest on top. Swipe on either direction on the list to delete an item.');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -152,7 +155,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ],
               ),
-              Row (
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
@@ -162,6 +165,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 3;
                         switchScreen();
+                        flutterTts.speak('You have picked: Navigation');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -190,6 +194,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 4;
                         switchScreen();
+                        flutterTts.speak('You have picked: Basic Object Detection');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -220,7 +225,7 @@ class _MenuScreenState extends State<MenuScreen> {
           //screen reader
           onPressed: () {
             flutterTts.speak(
-                "Pick one of the four corners: Top-Left is a Reader, Top-Right is your To-Do List, Bottom-Left is for Navigation, and Bottom-Right is for basic object Detection");
+                "You are in the Main Menu. Pick one of the four corners: Top-Left is a Reader, Top-Right is your To-Do List, Bottom-Left is for Navigation, and Bottom-Right is for basic object Detection");
           },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,

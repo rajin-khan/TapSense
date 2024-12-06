@@ -23,8 +23,7 @@ class _EducationScreenState extends State<EducationScreen> {
   final FlutterTts flutterTts = FlutterTts();
 
   Future<void> _pickImage() async {
-    //image picker function
-    //image picker
+    flutterTts.speak("You are now picking an image.");
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
@@ -50,6 +49,7 @@ class _EducationScreenState extends State<EducationScreen> {
     setState(() {
       scannedText = extractedText!;
     });
+    flutterTts.speak(scannedText);
   }
 
   @override
@@ -79,21 +79,24 @@ class _EducationScreenState extends State<EducationScreen> {
           child: const Icon(Icons.add_rounded,
               color: Colors.orange), // icon of the button
         ),
-        const SizedBox(height: 18),
-        TextButton(
-          onPressed: _processedOutput,
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.orange,
-            padding: const EdgeInsets.all(10),
-            textStyle: GoogleFonts.poppins(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
+        const SizedBox(height: 20),
+        SizedBox(
+          width: 250,
+          height: 55,
+          child: ElevatedButton(
+            onPressed: _processedOutput,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.orange,
+            ),
+            child: Text(
+              'SHOW OUTPUT',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: 15),
             ),
           ),
-          child: const Text('SHOW OUTPUT'),
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 20),
         Expanded(
           child: SingleChildScrollView(
             child: Column(
@@ -116,10 +119,7 @@ class _EducationScreenState extends State<EducationScreen> {
         TextButton.icon(
           //screen reader
           onPressed: () {
-            flutterTts.speak(
-              //check utterance id to verify working
-              scannedText,
-            );
+            flutterTts.speak(scannedText);
           },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,

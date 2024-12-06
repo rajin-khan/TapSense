@@ -18,7 +18,6 @@ class ToDos extends StatefulWidget {
 }
 
 class _ToDosState extends State<ToDos> {
-
   final FlutterTts flutterTts = FlutterTts();
 
   final List<ToDo> _registeredToDos = [
@@ -27,6 +26,8 @@ class _ToDosState extends State<ToDos> {
   ];
 
   void _openAddToDoOverlay() {
+    flutterTts.speak(
+        "You are now adding an item to the To-Do List. Tap the microphone at the center of the screen to input an item, then hit save by tapping the lower right below the microphone. Swipe down to cancel.");
     showModalBottomSheet(
       backgroundColor: Colors.black.withOpacity(0.5),
       isScrollControlled: true,
@@ -105,15 +106,16 @@ class _ToDosState extends State<ToDos> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
-        ElevatedButton( 
-           onPressed: _openAddToDoOverlay,
-           style: ElevatedButton.styleFrom(
-             shape: const CircleBorder(),
-             padding: const EdgeInsets.all(15),
-             backgroundColor: Colors.black,
-           ),
-           child: const Icon(Icons.add_rounded, color: Colors.orange), // icon of the button
-         ),
+        ElevatedButton(
+          onPressed: _openAddToDoOverlay,
+          style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(15),
+            backgroundColor: Colors.black,
+          ),
+          child: const Icon(Icons.add_rounded,
+              color: Colors.orange), // icon of the button
+        ),
         const SizedBox(height: 20),
         Expanded(
           //the expanded widget must be used here we are trying to display a list (listview) inside another list (the column widget)
@@ -125,7 +127,7 @@ class _ToDosState extends State<ToDos> {
           onPressed: () {
             String spoken = "Your To-Do List is: ";
             if (_registeredToDos.isEmpty) {
-              spoken = "Your To-Do List is empty. Add something!";
+              spoken = "Your To-Do List is empty. Tap the button on top to add something!";
             } else {
               for (int i = 0; i < _registeredToDos.length; i++) {
                 spoken += _registeredToDos[i].title;

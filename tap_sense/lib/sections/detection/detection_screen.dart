@@ -26,7 +26,8 @@ class _DetectionScreenState extends State<DetectionScreen> {
   final FlutterTts flutterTts = FlutterTts();
 
   Future<void> _pickImage() async {
-    //image picker
+
+    flutterTts.speak("You are now picking an image.");
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
