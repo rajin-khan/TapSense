@@ -76,85 +76,151 @@ class _MenuScreenState extends State<MenuScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const SizedBox(height: 40),
         Text(
           'PICK ONE OF THE FOUR CORNERS:',
           style: GoogleFonts.poppins(
             color: const Color.fromRGBO(228, 239, 244, 1),
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 260),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextButton.icon(
-              onPressed: () {
-                num = 1;
-                switchScreen();
-              }, // Trigger screen switch on button press
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                    fontSize: 12, fontWeight: FontWeight.bold),
+        //const SizedBox(height: 260),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 150,
+                    height: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        num = 1;
+                        switchScreen();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        elevation: 0,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.book_rounded, size: 55),
+                          const SizedBox(height: 20),
+                          Text(
+                            'READER',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w700, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        num = 2;
+                        switchScreen();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        elevation: 0,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.checklist_rounded, size: 55),
+                          const SizedBox(height: 20),
+                          Text(
+                            'TO-DOS',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w700, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              icon: const Icon(Icons.book),
-              label: const Text('EDUCATION'),
-            ),
-            TextButton.icon(
-              onPressed: () {
-                num = 2;
-                switchScreen();
-              }, // Trigger screen switch on button press
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                    fontSize: 12, fontWeight: FontWeight.bold),
+              Row (
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 150,
+                    height: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        num = 3;
+                        switchScreen();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        elevation: 0,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.navigation_rounded, size: 55),
+                          const SizedBox(height: 20),
+                          Text(
+                            'NAVIGATION',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w700, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        num = 4;
+                        switchScreen();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        elevation: 0,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.app_shortcut_rounded, size: 55),
+                          const SizedBox(height: 20),
+                          Text(
+                            'DETECTION',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w700, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              icon: const Icon(Icons.work),
-              label: const Text('PRODUCTIVITY'),
-            ),
-          ],
+            ],
+          ),
         ),
-        const SizedBox(height: 50),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextButton.icon(
-              onPressed: () {
-                num = 3;
-                switchScreen();
-              }, // Trigger screen switch on button press
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                    fontSize: 12, fontWeight: FontWeight.bold),
-              ),
-              icon: const Icon(Icons.navigation),
-              label: const Text('NAVIGATION'),
-            ),
-            TextButton.icon(
-              onPressed: () {
-                num = 4;
-                switchScreen();
-              }, // Trigger screen switch on button press
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                    fontSize: 12, fontWeight: FontWeight.bold),
-              ),
-              icon: const Icon(Icons.food_bank),
-              label: const Text('DETECTION'),
-            ),
-          ],
-        ),
-        const SizedBox(height: 150),
-        TextButton.icon( //screen reader
+        TextButton.icon(
+          //screen reader
           onPressed: () {
-            flutterTts.speak("Pick one of the four corners: Education, Productivity, Navigation, DETECTION");
+            flutterTts.speak(
+                "Pick one of the four corners: Top-Left is a Reader, Top-Right is your To-Do List, Bottom-Left is for Navigation, and Bottom-Right is for basic object Detection");
           },
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
@@ -163,7 +229,8 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
           icon: const Icon(Icons.multitrack_audio_rounded),
           label: const Text('READ SCREEN'),
-        )
+        ),
+        //const SizedBox(height: 50),
       ],
     );
   }
