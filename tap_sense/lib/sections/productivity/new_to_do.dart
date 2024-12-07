@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:tap_sense/models/to_do.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -16,6 +17,8 @@ class NewToDo extends StatefulWidget {
 
 class _NewToDoState extends State<NewToDo> {
   final _titleController = TextEditingController();
+
+  final FlutterTts flutterTts = FlutterTts();
 
   final SpeechToText _speechToText =
       SpeechToText(); //creates speechtotext object
@@ -150,8 +153,8 @@ class _NewToDoState extends State<NewToDo> {
             children: [
               TextButton(
                 onPressed: () {
-                  Navigator.pop(
-                      context); //closes currently open menu and reverts to last one
+                  Navigator.pop(context);
+                  flutterTts.speak("Input cancelled.");
                 },
                 child: Text(
                   'Cancel',

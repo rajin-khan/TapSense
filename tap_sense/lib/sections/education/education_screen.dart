@@ -35,8 +35,7 @@ class _EducationScreenState extends State<EducationScreen> {
   }
 
   Future<void> _processImage() async {
-    //image processor
-    //OCR processor
+    flutterTts.speak("Your image has been picked. Tap the button immediately below to scan text.");
     final inputImage = InputImage.fromFilePath(_imageFile!.path);
     final textRecognizer = TextRecognizer();
     final RecognizedText recognizedText =

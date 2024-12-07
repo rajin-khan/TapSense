@@ -37,12 +37,14 @@ class _ToDosState extends State<ToDos> {
   }
 
   void _addToDo(ToDo toDo) {
+    flutterTts.speak("You have saved: ${toDo.title}");
     setState(() {
       _registeredToDos.add(toDo);
     });
   }
 
   void _removeToDo(ToDo toDo) {
+    flutterTts.speak('You have deleted: ${toDo.title}');
     final toDoIndex = _registeredToDos.indexOf(toDo);
     setState(() {
       _registeredToDos.remove(toDo);
@@ -127,7 +129,8 @@ class _ToDosState extends State<ToDos> {
           onPressed: () {
             String spoken = "Your To-Do List is: ";
             if (_registeredToDos.isEmpty) {
-              spoken = "Your To-Do List is empty. Tap the button on top to add something!";
+              spoken =
+                  "Your To-Do List is empty. Tap the button on top to add something!";
             } else {
               for (int i = 0; i < _registeredToDos.length; i++) {
                 spoken += _registeredToDos[i].title;

@@ -39,6 +39,7 @@ class _DetectionScreenState extends State<DetectionScreen> {
   }
 
   Future<void> _processImage() async {
+    flutterTts.speak("Your image has been picked. Tap the button on top to know what you are looking at.");
     final inputImage = InputImage.fromFilePath(_imageFile!.path);
 
     final objectDetector = ObjectDetector(

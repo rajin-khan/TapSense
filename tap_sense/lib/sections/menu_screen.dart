@@ -102,7 +102,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 1;
                         switchScreen();
-                        flutterTts.speak('You have picked: Reader');
+                        flutterTts.speak('You have picked: Reader. Tap the button on top to add an image to scan.');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -131,7 +131,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 2;
                         switchScreen();
-                        flutterTts.speak('You have picked: TO-DO List. Itema are ordered with the oldest on top. Swipe on either direction on the list to delete an item.');
+                        flutterTts.speak('You have picked: TO-DO List. Items are ordered with the oldest on top. Swipe on either direction on the list to delete an item.');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -194,7 +194,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 4;
                         switchScreen();
-                        flutterTts.speak('You have picked: Basic Object Detection');
+                        flutterTts.speak('You have picked: Basic Object Detection. Tap the center of the screen to add an image.');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
