@@ -29,7 +29,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>This app does not require access to the microphone.</string>
+    <string>This app requires access to the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires access to the photo library.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
@@ -40,8 +40,6 @@
 	<string>Main</string>
     <key>NsspeechRecognitionUsageDescription</key>
     <string>This app requires access to the speech recognition.</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This app requires access to the microphone.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
