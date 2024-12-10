@@ -18,7 +18,8 @@ class _EducationScreenState extends State<EducationScreen> {
   File? _imageFile; //creates the image file
 
   String? extractedText; //for storing the text after processing
-  String scannedText = "Nothing scanned yet. Tap the button above to scan from an image!";
+  String scannedText =
+      "Nothing scanned yet. Tap the button above to scan from an image!";
 
   final FlutterTts flutterTts = FlutterTts();
 
@@ -34,8 +35,21 @@ class _EducationScreenState extends State<EducationScreen> {
     }
   }
 
+  Future<void> _takeImage() async {
+    flutterTts.speak("You are now taking an image.");
+    final pickedFile = await ImagePicker().pickImage(
+        source: ImageSource.camera, preferredCameraDevice: CameraDevice.rear);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
+      _processImage();
+    }
+  }
+
   Future<void> _processImage() async {
-    flutterTts.speak("Your image has been picked. Tap the button immediately below to scan text.");
+    flutterTts.speak(
+        "Your image has been picked. Tap the button immediately below to scan text.");
     final inputImage = InputImage.fromFilePath(_imageFile!.path);
     final textRecognizer = TextRecognizer();
     final RecognizedText recognizedText =
@@ -68,15 +82,54 @@ class _EducationScreenState extends State<EducationScreen> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 18),
-        ElevatedButton(
-          onPressed: _pickImage,
-          style: ElevatedButton.styleFrom(
-            shape: const CircleBorder(),
-            padding: const EdgeInsets.all(15),
-            backgroundColor: Colors.black,
-          ),
-          child: const Icon(Icons.add_rounded,
-              color: Colors.orange), // icon of the button
+        Row(
+          children: [
+            SizedBox(
+              width: 160,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: _pickImage,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Icon(Icons.add_a_photo_rounded),
+                    Text(
+                      'PICK IMAGE',
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600, fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            SizedBox(
+              width: 160,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: _takeImage,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Icon(Icons.add_a_photo_rounded),
+                    Text(
+                      'TAKE IMAGE',
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600, fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 20),
         SizedBox(
