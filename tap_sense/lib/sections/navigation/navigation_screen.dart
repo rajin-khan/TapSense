@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:tap_sense/models/lat_long.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:tap_sense/models/location_coordinates.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen(this.onRestart, {super.key});
@@ -18,7 +19,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final TextEditingController _destinationController = TextEditingController();
 
   String extractInstructions(String input) {
-
     String result = '';
 
     // Use a regular expression to find all occurrences of "instruction: (text until the next comma)"
@@ -42,7 +42,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   Future<void> fetchRoute(LatLng start, LatLng destination) async {
     const String apiKey =
-        'insert your api key here';
+        'your api key';
     const String baseUrl =
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
@@ -77,6 +77,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    var locationFinder = LocationCoordinates();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -98,10 +100,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  style: const TextStyle(color: Colors.white),
                   controller: _startController,
                   decoration: const InputDecoration(
                     labelText: 'Start (Lat,Lng)',
-                    border: OutlineInputBorder(),
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -109,10 +111,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  style: const TextStyle(color: Colors.white),
                   controller: _destinationController,
                   decoration: const InputDecoration(
                     labelText: 'Destination (Lat,Lng)',
-                    border: OutlineInputBorder(),
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -123,8 +125,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 height: 55,
                 child: ElevatedButton(
                   onPressed: () {
-                    final startCoords = _startController.text.split(',');
-                    final destCoords = _destinationController.text.split(',');
+                    final startCoords = locationFinder.getCoordinates(_startController.text).split(',');
+                    final destCoords = locationFinder.getCoordinates(_destinationController.text).split(',');
 
                     if (startCoords.length == 2 && destCoords.length == 2) {
                       try {
