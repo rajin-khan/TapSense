@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 import 'package:tap_sense/models/lat_long.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -41,9 +42,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
     return result;
   }
 
+  void copyToClipboard(String text) {
+    Clipboard.setData(ClipboardData(text: text));
+  }
+
   Future<void> fetchRoute(LatLng start, LatLng destination) async {
     const String apiKey =
-        'your api key';
+        '5b3ce3597851110001cf6248311abb5d23bb42ec8b0a70fc8f59f8a7';
     const String baseUrl =
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
@@ -64,9 +69,15 @@ class _NavigationScreenState extends State<NavigationScreen> {
         options: Options(headers: {"Authorization": apiKey}),
       );
 
-      // Log the full API response
       //print('API Response: ${response.data}');
       flutterTts.speak(extractInstructions(response.data.toString()));
+      copyToClipboard(extractInstructions(response.data.toString()));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content:
+              Text('The directions have been copied to your clipboard!'),
+        ),
+      );
     } catch (e) {
       print('Error fetching route: $e');
       ScaffoldMessenger.of(context).showSnackBar(
