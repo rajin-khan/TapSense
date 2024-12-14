@@ -74,7 +74,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
       flutterTts.speak(extractedInstructions);
       Clipboard.setData(ClipboardData(text: extractedInstructions));
-
+      
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content:
