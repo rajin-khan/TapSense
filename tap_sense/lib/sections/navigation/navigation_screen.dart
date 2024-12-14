@@ -233,7 +233,20 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ],
           ),
         ),
-        
+        const SizedBox(height: 10),
+        TextButton.icon(
+          onPressed: () {
+            flutterTts
+                .speak('Available locations are: ${locationNames.toString()}');
+          },
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            textStyle:
+                GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+          icon: const Icon(Icons.multitrack_audio_rounded),
+          label: const Text('READ SCREEN'),
+        ),
         TextButton(
           onPressed: widget.onRestart,
           style: TextButton.styleFrom(
