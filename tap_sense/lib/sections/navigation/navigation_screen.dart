@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:tap_sense/models/lat_long.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 import 'package:tap_sense/models/location_coordinates.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -19,27 +20,57 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final TextEditingController _startController = TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
   final FlutterTts flutterTts = FlutterTts();
+  final SpeechToText _speechToText = SpeechToText();
+  final LocationCoordinates locationFinder = LocationCoordinates();
+
+  // ignore: unused_field
+  bool _speechEnabled = false;
+  bool _listeningForStart = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeSpeechRecognition();
+  }
+
+  void _initializeSpeechRecognition() async {
+    _speechEnabled = await _speechToText.initialize();
+    setState(() {});
+  }
+
+  void _startListening(bool forStartLocation) async {
+    _listeningForStart = forStartLocation;
+    await _speechToText.listen(onResult: _onSpeechResult);
+    setState(() {});
+  }
+
+  void _stopListening() async {
+    await _speechToText.stop();
+    setState(() {});
+  }
+
+  void _onSpeechResult(result) {
+    setState(() {
+      if (_listeningForStart) {
+        _startController.text = result.recognizedWords;
+      } else {
+        _destinationController.text = result.recognizedWords;
+      }
+    });
+  }
 
   String extractInstructions(String input) {
     String result = '';
-
-    // Use a regular expression to find all occurrences of "instruction: (text until the next comma)"
     RegExp regExp = RegExp(r'instruction:\s*([^,]+),');
-
-    // Extract all matches
     Iterable<RegExpMatch> matches = regExp.allMatches(input);
 
     for (RegExpMatch match in matches) {
-      // Group 1 contains the instruction text
       result += '${match.group(1)!.trim()}, ';
     }
 
-    // Remove the trailing comma and space, if any
-    if (result.endsWith(', ')) {
-      result = result.substring(0, result.length - 2);
-    }
-
-    return result;
+    return result.endsWith(', ')
+        ? result.substring(0, result.length - 2)
+        : result;
   }
 
   void copyToClipboard(String text) {
@@ -53,10 +84,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
 
-    final FlutterTts flutterTts = FlutterTts();
-
     try {
-      // Make API request
       final response = await dio.post(
         baseUrl,
         data: {
@@ -69,17 +97,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
         options: Options(headers: {"Authorization": apiKey}),
       );
 
-      //print('API Response: ${response.data}');
-      String extractedInstructions = extractInstructions(response.data.toString());
+      String extractedInstructions =
+          extractInstructions(response.data.toString());
 
       flutterTts.speak(extractedInstructions);
       Clipboard.setData(ClipboardData(text: extractedInstructions));
-      
+
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content:
-              Text('Directions copied to clipboard.'),
-        ),
+        const SnackBar(content: Text('Directions copied to clipboard.')),
       );
     } catch (e) {
       print('Error fetching route: $e');
@@ -118,10 +143,44 @@ class _NavigationScreenState extends State<NavigationScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  style: const TextStyle(color: Colors.white),
+                  style: GoogleFonts.poppins(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    fontWeight: FontWeight.normal,
+                  ),
                   controller: _startController,
-                  decoration: const InputDecoration(
-                    labelText: 'Start Location',
+                  cursorColor:
+                      Colors.orange.withOpacity(0.8), // Set the cursor color
+                  decoration: InputDecoration(
+                    labelText: 'START LOCATION',
+                    labelStyle: GoogleFonts.poppins(
+                      color: Colors.grey.withOpacity(0.8),
+                      fontWeight: FontWeight.w400,
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey.withOpacity(
+                            0.8), // Set the input line color when focused
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey.withOpacity(
+                            0.6), // Set the input line color when not focused
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _speechToText.isListening && _listeningForStart
+                            ? Icons.mic_rounded
+                            : Icons.mic_off_rounded,
+                        color: Colors.orange,
+                      ),
+                      onPressed: () {
+                        _speechToText.isListening
+                            ? _stopListening()
+                            : _startListening(true);
+                      },
+                    ),
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -129,10 +188,44 @@ class _NavigationScreenState extends State<NavigationScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  style: const TextStyle(color: Colors.white),
+                  style: GoogleFonts.poppins(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    fontWeight: FontWeight.normal,
+                  ),
                   controller: _destinationController,
-                  decoration: const InputDecoration(
-                    labelText: 'Destination Location',
+                  cursorColor:
+                      Colors.grey.withOpacity(0.8), // Set the cursor color
+                  decoration: InputDecoration(
+                    labelText: 'DESTINATION LOCATION',
+                    labelStyle: GoogleFonts.poppins(
+                      color: Colors.grey.withOpacity(0.8),
+                      fontWeight: FontWeight.w400,
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey.withOpacity(
+                            0.8), // Set the input line color when focused
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.grey.withOpacity(
+                            0.6), // Set the input line color when not focused
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _speechToText.isListening && !_listeningForStart
+                            ? Icons.mic_rounded
+                            : Icons.mic_off_rounded,
+                        color: Colors.orange,
+                      ),
+                      onPressed: () {
+                        _speechToText.isListening
+                            ? _stopListening()
+                            : _startListening(false);
+                      },
+                    ),
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -164,7 +257,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
                         fetchRoute(start, destination);
                       } catch (e) {
-                        //print('Invalid coordinate format: $e');
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                               content: Text(
@@ -172,7 +264,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         );
                       }
                     } else {
-                      //print('Invalid input format.');
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                             content: Text(
@@ -198,7 +289,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 ),
               ),
               const SizedBox(height: 5),
-              // Scrollable Section for Available Locations
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
