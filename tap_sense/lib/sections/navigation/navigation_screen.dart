@@ -17,6 +17,7 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   final TextEditingController _startController = TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
+  final FlutterTts flutterTts = FlutterTts();
 
   String extractInstructions(String input) {
     String result = '';
@@ -64,7 +65,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       );
 
       // Log the full API response
-      print('API Response: ${response.data}');
+      //print('API Response: ${response.data}');
       flutterTts.speak(extractInstructions(response.data.toString()));
     } catch (e) {
       print('Error fetching route: $e');
@@ -77,8 +78,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     var locationFinder = LocationCoordinates();
+
+    // Extract location names
+    List<String> locationNames = locationFinder.getLocationNames();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -103,7 +107,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   style: const TextStyle(color: Colors.white),
                   controller: _startController,
                   decoration: const InputDecoration(
-                    labelText: 'Start (Lat,Lng)',
+                    labelText: 'Start Location',
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -114,7 +118,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   style: const TextStyle(color: Colors.white),
                   controller: _destinationController,
                   decoration: const InputDecoration(
-                    labelText: 'Destination (Lat,Lng)',
+                    labelText: 'Destination Location',
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -125,8 +129,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 height: 55,
                 child: ElevatedButton(
                   onPressed: () {
-                    final startCoords = locationFinder.getCoordinates(_startController.text).split(',');
-                    final destCoords = locationFinder.getCoordinates(_destinationController.text).split(',');
+                    final startCoords = locationFinder
+                        .getCoordinates(_startController.text.toUpperCase())
+                        .split(',');
+                    final destCoords = locationFinder
+                        .getCoordinates(
+                            _destinationController.text.toUpperCase())
+                        .split(',');
 
                     if (startCoords.length == 2 && destCoords.length == 2) {
                       try {
@@ -141,7 +150,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
                         fetchRoute(start, destination);
                       } catch (e) {
-                        print('Invalid coordinate format: $e');
+                        //print('Invalid coordinate format: $e');
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                               content: Text(
@@ -149,11 +158,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
                         );
                       }
                     } else {
-                      print('Invalid input format.');
+                      //print('Invalid input format.');
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                             content: Text(
-                                'Please enter valid coordinates in Lat,Lng format.')),
+                                'Please make sure the spelling of the name of the location is correct.')),
                       );
                     }
                   },
@@ -174,9 +183,57 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 5),
+              // Scrollable Section for Available Locations
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '- AVAILABLE LOCATIONS -',
+                        style: GoogleFonts.poppins(
+                          color: Colors.orange,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: ListView.builder(
+                            itemCount: locationNames.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5.0, horizontal: 8.0),
+                                child: Text(
+                                  locationNames[index],
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
+        
         TextButton(
           onPressed: widget.onRestart,
           style: TextButton.styleFrom(
