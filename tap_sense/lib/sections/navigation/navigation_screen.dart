@@ -70,8 +70,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
       );
 
       //print('API Response: ${response.data}');
-      flutterTts.speak(extractInstructions(response.data.toString()));
-      copyToClipboard(extractInstructions(response.data.toString()));
+      String extractedInstructions = extractInstructions(response.data.toString());
+
+      flutterTts.speak(extractedInstructions);
+      Clipboard.setData(ClipboardData(text: extractedInstructions));
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content:
