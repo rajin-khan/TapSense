@@ -96,8 +96,8 @@
 | **Google ML Kit's Object Detection**| For identifying objects in a scene |
 | **Flutter's Text-to-Speech**        | For reading detection results aloud|
 
-### **Demo**
-*(Embed video here)*
+---
+![Detection Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/detection.gif)
 
 ---
 
