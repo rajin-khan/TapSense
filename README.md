@@ -21,8 +21,12 @@
 | **Navigation**| Fetch directions dynamically with voice commands   |
 | **Detection** | Identify objects in a scene with confidence levels |
 
-### Demo
-[Watch Demo Video](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/mainmenu.mp4)
+---
+
+<video height="360" controls>
+  <source src="https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/mainmenu.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
@@ -56,8 +60,13 @@
 | **Speech-to-Text Package**    | For voice input                   |
 | **Flutter's Text-to-Speech**  | For audio feedback                |
 
-### **Demo**
-*(Embed video here)*
+---
+
+
+<video height="360" controls>
+  <source src="https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/todo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
