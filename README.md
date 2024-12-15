@@ -13,6 +13,8 @@
 - **Dynamic "READ SCREEN" Buttons**: Ensures easy-to-access text-to-speech functionality at the bottom of every section.
 - **Cross-Platform Compatibility**: Developed using **Flutter**, ensuring availability on both iOS and Android platforms.
 
+###### *Please note that the videos used in the demos are in GIF format to give you an idea of what the app looks like. The actual app is much smoother and responsive.*
+
 ### **Features at a Glance**
 | Section       | Functionality                                       |
 |---------------|----------------------------------------------------|
