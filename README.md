@@ -22,7 +22,7 @@
 | **Detection** | Identify objects in a scene with confidence levels |
 
 ---
-https://github.com/user-attachments/assets/ac125d9a-c6a8-48e4-8de9-bc0ed2a42ae9
+![Main Menu Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/mainmenu.gif)
 ---
 
 ## **🔍 1. Reader**
@@ -57,13 +57,6 @@ https://github.com/user-attachments/assets/ac125d9a-c6a8-48e4-8de9-bc0ed2a42ae9
 
 ---
 
-
-<video height="360" controls>
-  <source src="https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/todo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-<video src='capstone-sem-8/documentation/demovids/todo.mp4' width=180/>
 ---
 
 ## **🗺️ 3. Navigation**
