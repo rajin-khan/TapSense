@@ -128,16 +128,16 @@ Your contributions are greatly appreciated!
 ---
 
 ## **📜 License**
-This project is licensed under the **MIT License**. Feel free to use, modify, and distribute the app as per the license terms.
+This project is licensed under the **MIT License**.
 
 ---
 
 ## **👥 Contributors**
 This project was developed by:
 
-| Name                      | Institution             |
-|---------------------------|-------------------------|
-| **Rajin Khan**            | North South University |
-| **Saumik Saha Kabbya**    | North South University |
+| Name                      | Institution             | ID |
+|---------------------------|-------------------------|--  |
+| **Rajin Khan**            | North South University | 2212708042 |
+| **Saumik Saha Kabbya**    | North South University | 2211204042 |
 
 Thank you for supporting this project!
