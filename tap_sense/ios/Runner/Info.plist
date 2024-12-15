@@ -26,7 +26,7 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
+    <key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera.</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>This app requires access to the microphone.</string>

@@ -36,9 +36,10 @@ class _EducationScreenState extends State<EducationScreen> {
   }
 
   Future<void> _takeImage() async {
+
     flutterTts.speak("You are now taking an image.");
-    final pickedFile = await ImagePicker().pickImage(
-        source: ImageSource.camera, preferredCameraDevice: CameraDevice.rear);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.camera, preferredCameraDevice: CameraDevice.rear);
     if (pickedFile != null) {
       setState(() {
         _imageFile = File(pickedFile.path);
