@@ -41,8 +41,8 @@
 | **Google ML Kit's Text Recognition** | For extracting text from images     |
 | **Flutter's Text-to-Speech**  | For converting text to speech       |
 
-### **Demo**
-*(Embed video here)*
+---
+![Reader Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/reader.gif)
 
 ---
 
@@ -77,8 +77,8 @@
 | **LatLong Package**            | For geolocation                     |
 | **Dio Package**                | For making API requests             |
 
-### **Demo**
-*(Embed video here)*
+---
+![Navigation Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/navigation.gif)
 
 ---
 
