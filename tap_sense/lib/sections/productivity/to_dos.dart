@@ -20,10 +20,7 @@ class ToDos extends StatefulWidget {
 class _ToDosState extends State<ToDos> {
   final FlutterTts flutterTts = FlutterTts();
 
-  final List<ToDo> _registeredToDos = [
-    ToDo(title: 'Get Groceries'),
-    ToDo(title: 'Watch Movie'),
-  ];
+  final List<ToDo> _registeredToDos = [];
 
   void _openAddToDoOverlay() {
     flutterTts.speak(
