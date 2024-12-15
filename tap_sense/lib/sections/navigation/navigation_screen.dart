@@ -79,7 +79,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   Future<void> fetchRoute(LatLng start, LatLng destination) async {
     const String apiKey =
-        '5b3ce3597851110001cf6248311abb5d23bb42ec8b0a70fc8f59f8a7';
+        'your api key';
     const String baseUrl =
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
