@@ -2,122 +2,137 @@
   <img src="https://i.imgur.com/IXTcRvh.png" width="400"/>
 </p>
 
-<h1 align="center">An Accessibility App for the visually impaired</h1>
+<h1 align="center">✨ An Accessibility App for the Visually Impaired ✨</h1>
 
 ---
 
----
+## **🌟 Overview**
 
-![Profile banner](https://i.imgur.com/xPkiNua.png)
+**Tap_Sense** is a thoughtfully designed accessibility app tailored for visually impaired users. The app provides intuitive tools to simplify daily tasks, paired with a minimalistic user interface. 
 
-<h5 align="center">(TENTATIVE)</h5>
+- **Dynamic "READ SCREEN" Buttons**: Ensures easy-to-access text-to-speech functionality at the bottom of every section.
+- **Cross-Platform Compatibility**: Developed using **Flutter**, ensuring availability on both iOS and Android platforms.
 
----
-
-<h1 align="center">Timeline Overview</h1>
-<h3 align="center">
-  <a href="https://github.com/rajin-khan/flutter-self" target="_blank" rel="noreferrer">(Progress & Projects while learning Flutter can be found in this repo)</a>
-</h3>
-
----
-
-### Week 1 (18th Sept – 24th Sept)
-**Goal**: Familiarize with Flutter & Dart basics  
-**Tasks**:
-- Complete the **introductory sections** of the [Flutter course](https://www.udemy.com/course/el5hatib-flutter/?couponCode=ST11MT91624B) (~20%).
-- Set up the development environment (IDE, Flutter SDK).
-- Focus on understanding Dart syntax (variables, control flow, functions, and OOP concepts).
-- Set up the GitHub repository for version control.
+### **Features at a Glance**
+| Section       | Functionality                                       |
+|---------------|----------------------------------------------------|
+| **Reader**    | Scan text from images and convert it to speech     |
+| **To-Do**     | Voice-powered dynamic to-do list creation          |
+| **Navigation**| Fetch directions dynamically with voice commands   |
+| **Detection** | Identify objects in a scene with confidence levels |
 
 ---
 
-### Week 2 (25th Sept – 1st Oct)
-**Goal**: Master Flutter’s UI basics  
-**Tasks**:
-- Finish sections on **widgets** and **state management** in the course (~50%).
-- Build a basic interface with Flutter widgets (text fields, buttons, navigation).
-- Explore stateful and stateless widgets in more detail.
+## **🔍 1. Reader**
+
+### **Description**
+- Leverages **OCR (Optical Character Recognition)** powered by **TensorFlow Lite (TFLite)** to scan text from images and convert it to readable output.
+- Users can select an image from their gallery or capture one using their device’s camera.
+
+### **Technologies Used**
+| Dependency                    | Purpose                             |
+|-------------------------------|-------------------------------------|
+| **Image Picker Library**      | For selecting or capturing images   |
+| **Google ML Kit's Text Recognition** | For extracting text from images     |
+| **Flutter's Text-to-Speech**  | For converting text to speech       |
+
+### **Demo**
+*(Embed video here)*
 
 ---
 
-### Week 3 (2nd Oct – 8th Oct)
-**Goal**: Learn API integration and networking  
-**Tasks**:
-- Complete the sections on **API calls** and **data handling** in the course (~70%).
-- Practice making API requests using **HTTP** in Flutter.
-- Explore **JSON parsing** and dive into Firebase and third-party API documentation.
+## **🗒️ 2. To-Do**
+
+### **Description**
+- Uses **speech-to-text** technology to create, store, and delete to-do items dynamically.
+- Aimed at increasing productivity for visually impaired users by leveraging voice commands.
+
+### **Technologies Used**
+| Dependency                    | Purpose                            |
+|-------------------------------|------------------------------------|
+| **Speech-to-Text Package**    | For voice input                   |
+| **Flutter's Text-to-Speech**  | For audio feedback                |
+
+### **Demo**
+*(Embed video here)*
 
 ---
 
-### Week 4 (9th Oct – 15th Oct)
-**Goal**: Work on **Education (OCR to Text-to-Speech)**  
-**Tasks**:
-- Integrate **Firebase ML Vision** or **Google Tesseract** for image recognition.
-- Implement basic OCR functionality.
-- Work on **Text-to-Speech** integration using `flutter_tts`.
-- Test capturing images and converting text to speech.
+## **🗺️ 3. Navigation**
+
+### **Description**
+- Fetches and reads out dynamic directions based on user input via **speech-to-text**.
+- Copies instructions to the clipboard for convenience and displays a scrollable list of available locations.
+
+### **Technologies Used**
+| Dependency                     | Purpose                             |
+|--------------------------------|-------------------------------------|
+| **Speech-to-Text Package**     | For capturing voice input           |
+| **Flutter's Text-to-Speech**   | For voice-guided navigation         |
+| **LatLong Package**            | For geolocation                     |
+| **Dio Package**                | For making API requests             |
+
+### **Demo**
+*(Embed video here)*
 
 ---
 
-### Week 5 (16th Oct – 22nd Oct)
-**Goal**: Build the **Voice-based Calendar and Reminders** feature  
-**Tasks**:
-- Integrate the **device_calendar** and **speech_to_text** packages.
-- Build voice commands to add, update, and retrieve calendar events.
-- Set up **flutter_local_notifications** for reminders.
+## **🔍 4. Detection**
+
+### **Description**
+- Uses **Google ML Kit's Object Detection model** to identify objects within a scene.
+- Allows users to either select an image from their gallery or take a live image for detection.
+- Displays confidence levels for identified objects.
+
+### **Technologies Used**
+| Dependency                          | Purpose                            |
+|-------------------------------------|------------------------------------|
+| **Image Picker Library**            | For selecting or capturing images  |
+| **Google ML Kit's Object Detection**| For identifying objects in a scene |
+| **Flutter's Text-to-Speech**        | For reading detection results aloud|
+
+### **Demo**
+*(Embed video here)*
 
 ---
 
-### Week 6 (23rd Oct – 29th Oct)
-**Goal**: Start work on **Real-time Navigation**  
-**Tasks**:
-- Use the **Google Maps API** or **Mapbox SDK** for real-time directions.
-- Set up a basic map interface.
-- Implement **flutter_tts** for voice-guided directions.
-- Begin research and basic implementation of obstacle detection.
+## **🎯 Dynamic Features Across All Sections**
+
+- **Text-to-Speech Outputs**: Provides real-time audio feedback for every button, ensuring a consistent and accessible experience.
+- **Consistent UI**: The "READ SCREEN" button is always located above the "BACK" button for easy navigation and reduced learning curve.
 
 ---
 
-### Week 7 (30th Oct – 5th Nov)
-**Goal**: Build **Nutrition Analysis** (Object Detection)  
-**Tasks**:
-- Integrate **TensorFlow Lite** or **Firebase ML Kit** for object detection.
-- Connect to the **Edamam** or **Nutritionix API** for nutritional data.
-- Implement audio feedback using `flutter_tts`.
+## **🤝 How to Contribute**
+We welcome contributions from the community to make **Tap_Sense** even better! Here’s how you can contribute:
+
+1. **Report Bugs**: Found an issue? Please [open an issue](https://github.com/your-repo/issues) on our GitHub repository.
+2. **Propose Features**: Have ideas for new features? Let us know through an issue or a pull request.
+3. **Submit Pull Requests**: Fix bugs or add features by submitting a pull request to our repository.
+4. **Documentation**: Help improve the README or other documentation files.
+
+### Steps to Contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m "Description of changes"`).
+4. Push to your fork (`git push origin feature-name`).
+5. Open a pull request.
+
+Your contributions are greatly appreciated!
 
 ---
 
-### Week 8 (6th Nov – 12th Nov)
-**Goal**: Testing and Refining Features  
-**Tasks**:
-- Conduct **unit testing** and **integration testing** for all implemented features.
-- Address any bugs or issues encountered during development.
-- Refine the UI/UX for accessibility and ease of use.
+## **📜 License**
+This project is licensed under the **MIT License**. Feel free to use, modify, and distribute the app as per the license terms.
 
 ---
 
-### Week 9 (13th Nov – 19th Nov)
-**Goal**: Complete any **remaining features** and polish  
-**Tasks**:
-- Add any remaining functionality and finalize feature implementations.
-- Focus on improving the app’s performance and efficiency.
+## **👥 Contributors**
+This project was developed by:
 
----
+| Name                      | Institution             |
+|---------------------------|-------------------------|
+| **Rajin Khan**            | North South University |
+| **Saumik Saha Kabbya**    | North South University |
 
-### Week 10 (20th Nov – 26th Nov)
-**Goal**: Final testing and **UI/UX improvements**  
-**Tasks**:
-- Perform final **accessibility checks**, particularly for visually impaired users.
-- Polish the UI and finalize the design.
-- Conduct thorough testing across different devices (iOS/Android).
-
----
-
-### Week 11 (27th Nov – 1st Dec)
-**Goal**: **App Submission/Presentation Preparation**  
-**Tasks**:
-- Prepare the app for final submission (complete documentation, README, etc.).
-- Create the final **presentation** for the project and prepare for the demo.
-- Make any last-minute changes or optimizations.
-
----
+Thank you for supporting this project!
