@@ -165,7 +165,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       onPressed: () {
                         num = 3;
                         switchScreen();
-                        flutterTts.speak('You have picked: Navigation');
+                        flutterTts.speak('You have picked: Navigation. The top has two inputs, for your Start and Destination locations. They have mic inputs on the right. Immediately below is the button to get instructions. The bottom button will read out available locations.');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
