@@ -21,6 +21,9 @@
 | **Navigation**| Fetch directions dynamically with voice commands   |
 | **Detection** | Identify objects in a scene with confidence levels |
 
+### Demo
+[Watch Demo Video](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/mainmenu.mp4)
+
 ---
 
 ## **🔍 1. Reader**
