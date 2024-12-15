@@ -23,6 +23,7 @@
 
 ---
 ![Main Menu Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/mainmenu.gif)
+
 ---
 
 ## **🔍 1. Reader**
@@ -56,6 +57,7 @@
 | **Flutter's Text-to-Speech**  | For audio feedback                |
 
 ---
+![To-Do Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/todo.gif)
 
 ---
 
