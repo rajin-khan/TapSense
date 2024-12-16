@@ -19,6 +19,8 @@
 
 ---
 
+<div align="center">
+
 ## **🌟 Overview**
 
 **Tap_Sense** is a thoughtfully designed accessibility app tailored for visually impaired users. The app provides intuitive tools to simplify daily tasks, paired with a minimalistic user interface. 
@@ -154,3 +156,5 @@ This project was developed by:
 | **Saumik Saha Kabbya**    | North South University | 2211204042 |
 
 Thank you for supporting this project!
+
+</div>
