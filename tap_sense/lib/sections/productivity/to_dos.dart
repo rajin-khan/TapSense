@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_sense/models/to_do.dart';
 import 'package:tap_sense/sections/productivity/new_to_do.dart';
 import 'package:tap_sense/sections/productivity/to_do_list.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ToDos extends StatefulWidget {
@@ -47,6 +48,17 @@ class _ToDosState extends State<ToDos> {
     flutterTts.speak('You have deleted: ${toDo.title}');
     toDo.delete(); // Remove the To-Do from Hive storage
     setState(() {});
+  }
+
+  void _readScreen(List<ToDo> toDos) {
+    if (toDos.isEmpty) {
+      flutterTts.speak(
+          "No to-do items currently exist. Add something to get started.");
+    } else {
+      String toDoTitles = toDos.map((toDo) => toDo.title).join(", ");
+      flutterTts.speak(
+          "Your to-do list is: $toDoTitles.");
+    }
   }
 
   @override
@@ -95,6 +107,21 @@ class _ToDosState extends State<ToDos> {
             ),
             const SizedBox(height: 20),
             Expanded(child: mainContent),
+            const SizedBox(height: 20),
+            TextButton.icon(
+              onPressed: () {
+                _readScreen(toDos.cast<ToDo>());
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              icon: const Icon(Icons.multitrack_audio_rounded),
+              label: const Text('READ SCREEN'),
+            ),
             const SizedBox(height: 20),
             TextButton(
               onPressed: widget.onRestart,
