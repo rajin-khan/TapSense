@@ -142,12 +142,7 @@ Your contributions are greatly appreciated!
 
 ---
 
-## **📜 License**
-This project is licensed under the **MIT License**.
-
----
-
-## **👥 Contributors**
+## **👥 Development Team:**
 This project was developed by:
 
 | Name                      | Institution             | ID |
