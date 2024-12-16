@@ -4,6 +4,19 @@
 
 <h1 align="center">✨ An Accessibility App for the Visually Impaired ✨</h1>
 
+<div align="center">
+
+![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter)
+![Hive](https://img.shields.io/badge/Database-Hive-yellow?style=for-the-badge&logo=databricks)
+![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-orange?style=for-the-badge&logo=google)
+![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple)
+![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
+
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-green?style=for-the-badge&logo=git)
+![Accessibility](https://img.shields.io/badge/Accessibility-Priority-red?style=for-the-badge&logo=accessible-icon)
+
+</div>
+
 ---
 
 ## **🌟 Overview**
