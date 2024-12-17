@@ -132,11 +132,11 @@ We welcome contributions from the community to make **Tap_Sense** even better! H
 **Documentation**: Help improve the README or other documentation files.
 
 ### Steps to Contribute:
-Fork the repository.
-Create a new branch (`git checkout -b feature-name`).
-Commit your changes (`git commit -m "Description of changes"`).
-Push to your fork (`git push origin feature-name`).
-Open a pull request.
+- Fork the repository.
+- Create a new branch (`git checkout -b feature-name`).
+- Commit your changes (`git commit -m "Description of changes"`).
+- Push to your fork (`git push origin feature-name`).
+- Open a pull request.
 
 Your contributions are greatly appreciated!
 
