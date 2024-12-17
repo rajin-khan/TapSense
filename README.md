@@ -43,11 +43,11 @@
 
 ---
 
-## **🔍 1. Reader**
+## **🔍 Reader**
 
 ### **Description**
-- Leverages **OCR (Optical Character Recognition)** powered by **TensorFlow Lite (TFLite)** to scan text from images and convert it to readable output.
-- Users can select an image from their gallery or capture one using their device’s camera.
+Leverages **OCR (Optical Character Recognition)** powered by **TensorFlow Lite (TFLite)** to scan text from images and convert it to readable output.
+Users can select an image from their gallery or capture one using their device’s camera.
 
 ### **Technologies Used**
 | Dependency                    | Purpose                             |
@@ -61,11 +61,11 @@
 
 ---
 
-## **🗒️ 2. To-Do**
+## **🗒️ To-Do**
 
 ### **Description**
-- Uses **speech-to-text** technology to create, store, and delete to-do items dynamically.
-- Aimed at increasing productivity for visually impaired users by leveraging voice commands.
+Uses **speech-to-text** technology to create, store, and delete to-do items dynamically.
+Aimed at increasing productivity for visually impaired users by leveraging voice commands.
 
 ### **Technologies Used**
 | Dependency                    | Purpose                            |
@@ -78,11 +78,11 @@
 
 ---
 
-## **🗺️ 3. Navigation**
+## **🗺️ Navigation**
 
 ### **Description**
-- Fetches and reads out dynamic directions based on user input via **speech-to-text**.
-- Copies instructions to the clipboard for convenience and displays a scrollable list of available locations.
+Fetches and reads out dynamic directions based on user input via **speech-to-text**.
+Copies instructions to the clipboard for convenience and displays a scrollable list of available locations.
 
 ### **Technologies Used**
 | Dependency                     | Purpose                             |
@@ -97,12 +97,12 @@
 
 ---
 
-## **🔍 4. Detection**
+## **👓 Detection**
 
 ### **Description**
-- Uses **Google ML Kit's Object Detection model** to identify objects within a scene.
-- Allows users to either select an image from their gallery or take a live image for detection.
-- Displays confidence levels for identified objects.
+Uses **Google ML Kit's Object Detection model** to identify objects within a scene.
+Allows users to either select an image from their gallery or take a live image for detection.
+Displays confidence levels for identified objects.
 
 ### **Technologies Used**
 | Dependency                          | Purpose                            |
@@ -126,17 +126,17 @@
 ## **🤝 How to Contribute**
 We welcome contributions from the community to make **Tap_Sense** even better! Here’s how you can contribute:
 
-1. **Report Bugs**: Found an issue? Please [open an issue](https://github.com/your-repo/issues) on our GitHub repository.
-2. **Propose Features**: Have ideas for new features? Let us know through an issue or a pull request.
-3. **Submit Pull Requests**: Fix bugs or add features by submitting a pull request to our repository.
-4. **Documentation**: Help improve the README or other documentation files.
+**Report Bugs**: Found an issue? Please [open an issue](https://github.com/your-repo/issues) on our GitHub repository.
+**Propose Features**: Have ideas for new features? Let us know through an issue or a pull request.
+**Submit Pull Requests**: Fix bugs or add features by submitting a pull request to our repository.
+**Documentation**: Help improve the README or other documentation files.
 
 ### Steps to Contribute:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -m "Description of changes"`).
-4. Push to your fork (`git push origin feature-name`).
-5. Open a pull request.
+Fork the repository.
+Create a new branch (`git checkout -b feature-name`).
+Commit your changes (`git commit -m "Description of changes"`).
+Push to your fork (`git push origin feature-name`).
+Open a pull request.
 
 Your contributions are greatly appreciated!
 
