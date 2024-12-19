@@ -125,12 +125,12 @@ Displays confidence levels for identified objects.
 ---
 
 ## **🤝 How to Contribute**
-We welcome contributions from the community to make **Tap_Sense** even better! Here’s how you can contribute:
+We would love contributions from you guys to make **Tap_Sense** even better. You can contribute in a lot of ways:
 
-**Report Bugs**: Found an issue? Please [open an issue](https://github.com/your-repo/issues) on our GitHub repository.
-**Propose Features**: Have ideas for new features? Let us know through an issue or a pull request.
-**Submit Pull Requests**: Fix bugs or add features by submitting a pull request to our repository.
-**Documentation**: Help improve the README or other documentation files.
+- **Report Bugs**: Found an issue? Please [open an issue](https://github.com/your-repo/issues) on our GitHub repository.
+- **Propose Features**: Have ideas for new features? Let us know through an issue or a pull request.
+- **Submit Pull Requests**: Fix bugs or add features by submitting a pull request to our repository.
+- **Documentation**: Help improve the README or other documentation files.
 
 ### Steps to Contribute:
 - Fork the repository.
@@ -139,7 +139,7 @@ We welcome contributions from the community to make **Tap_Sense** even better! H
 - Push to your fork (`git push origin feature-name`).
 - Open a pull request.
 
-Your contributions are greatly appreciated!
+Your contributions are always appreciated!
 
 ---
 
@@ -151,6 +151,6 @@ This project was developed by:
 | **Rajin Khan**            | North South University | 2212708042 |
 | **Saumik Saha Kabbya**    | North South University | 2211204042 |
 
-Thank you for supporting this project!
+Star the repo if you wanna support more projects like this!
 
 </div>
