@@ -70,8 +70,9 @@ Aimed at increasing productivity for visually impaired users by leveraging voice
 ### **Technologies Used**
 | Dependency                    | Purpose                            |
 |-------------------------------|------------------------------------|
-| **Speech-to-Text Package**    | For voice input                   |
-| **Flutter's Text-to-Speech**  | For audio feedback                |
+| **Speech-to-Text Package**    | For voice input                         |
+| **Flutter's Text-to-Speech**  | For audio feedback                      |
+  | **Hive**                    | NoSQL Database for persistent storage   |
 
 ---
 ![To-Do Demo](https://github.com/rajin-khan/capstone-sem-8/raw/main/documentation/demovids/todo.gif)
