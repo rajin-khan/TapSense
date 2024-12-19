@@ -7,12 +7,11 @@
 <div align="center">
 
 ![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter)
-![Hive](https://img.shields.io/badge/Database-Hive-FFD700?style=for-the-badge&logo=databricks)
-![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-crimson?style=for-the-badge&logo=google)
+![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-FFD700?style=for-the-badge&logo=google)
 ![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple)
 ![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
 
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-red?style=for-the-badge&logo=git)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
 ![Accessibility](https://img.shields.io/badge/Accessibility-Priority-FFB6C1?style=for-the-badge&logo=accessible-icon)
 
 </div>
