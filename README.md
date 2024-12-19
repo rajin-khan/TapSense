@@ -145,10 +145,11 @@ Your contributions are always appreciated!
 ## **👥 Development Team:**
 This project was developed by:
 
-| Name                      | Institution             | ID |
-|---------------------------|-------------------------|--  |
-| **Rajin Khan**            | North South University | 2212708042 |
-| **Saumik Saha Kabbya**    | North South University | 2211204042 |
+| Name                      | Institution             | ID | GitHub | Followers |
+|---------------------------|-------------------------|--  |--------|------|
+| **Rajin Khan**            | North South University | 2212708042 | [![Rajin's GitHub](https://img.shields.io/badge/-rajin--khan-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rajin-khan) | ![Followers](https://img.shields.io/github/followers/rajin-khan?label=Follow&style=social) |
+| **Saumik Saha Kabbya**    | North South University | 2211204042 | [![Saumik's GitHub](https://img.shields.io/badge/-Kabbya04-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kabbya04) | ![Followers](https://img.shields.io/github/followers/Kabbya04?label=Follow&style=social) |
+
 
 Star the repo if you wanna support more projects like this!
 
