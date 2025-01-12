@@ -278,7 +278,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Icon(Icons.assistant_navigation),
+                      const Icon(Icons.assistant_navigation, color: Colors.white),
                       Text(
                         'FETCH ROUTE',
                         style: GoogleFonts.poppins(
@@ -348,7 +348,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             textStyle:
                 GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          icon: const Icon(Icons.multitrack_audio_rounded),
+          icon: const Icon(Icons.multitrack_audio_rounded, color: Colors.white),
           label: const Text('READ SCREEN'),
         ),
         TextButton(

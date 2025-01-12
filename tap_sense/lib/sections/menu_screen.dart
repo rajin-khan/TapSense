@@ -113,7 +113,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.book_rounded, size: 55),
+                          const Icon(Icons.book_rounded, size: 55, color: Colors.white),
                           const SizedBox(height: 20),
                           Text(
                             'READER',
@@ -142,7 +142,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.checklist_rounded, size: 55),
+                          const Icon(Icons.checklist_rounded, size: 55, color: Colors.white),
                           const SizedBox(height: 20),
                           Text(
                             'TO-DOS',
@@ -176,7 +176,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.navigation_rounded, size: 55),
+                          const Icon(Icons.navigation_rounded, size: 55, color: Colors.white),
                           const SizedBox(height: 20),
                           Text(
                             'NAVIGATION',
@@ -205,7 +205,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.app_shortcut_rounded, size: 55),
+                          const Icon(Icons.app_shortcut_rounded, size: 55, color: Colors.white),
                           const SizedBox(height: 20),
                           Text(
                             'DETECTION',
@@ -232,7 +232,7 @@ class _MenuScreenState extends State<MenuScreen> {
             textStyle:
                 GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          icon: const Icon(Icons.multitrack_audio_rounded),
+          icon: const Icon(Icons.multitrack_audio_rounded, color: Colors.white),
           label: const Text('READ SCREEN'),
         ),
         //const SizedBox(height: 50),

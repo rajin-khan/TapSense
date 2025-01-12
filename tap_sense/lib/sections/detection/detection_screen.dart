@@ -170,7 +170,7 @@ class _DetectionScreenState extends State<DetectionScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const Icon(Icons.add_a_photo_rounded),
+                          const Icon(Icons.add_a_photo_rounded, color: Colors.white),
                           Text(
                             'PICK IMAGE',
                             style: GoogleFonts.poppins(
@@ -193,7 +193,7 @@ class _DetectionScreenState extends State<DetectionScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const Icon(Icons.add_a_photo_rounded),
+                          const Icon(Icons.add_a_photo_rounded, color: Colors.white),
                           Text(
                             'TAKE IMAGE',
                             style: GoogleFonts.poppins(
@@ -222,7 +222,7 @@ class _DetectionScreenState extends State<DetectionScreen> {
             textStyle:
                 GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          icon: const Icon(Icons.multitrack_audio_rounded),
+          icon: const Icon(Icons.multitrack_audio_rounded, color: Colors.white),
           label: const Text('READ SCREEN'),
         ),
         const SizedBox(height: 20),

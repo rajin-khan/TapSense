@@ -119,7 +119,7 @@ class _ToDosState extends State<ToDos> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              icon: const Icon(Icons.multitrack_audio_rounded),
+              icon: const Icon(Icons.multitrack_audio_rounded, color: Colors.white),
               label: const Text('READ SCREEN'),
             ),
             const SizedBox(height: 20),
