@@ -6,13 +6,14 @@
 
 <div align="center">
 
+![Version](https://img.shields.io/badge/Version-2.0.0%20Beta-orange?style=for-the-badge&logo=semanticweb)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
+
 ![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter)
 ![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-FFD700?style=for-the-badge&logo=google)
 ![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple)
 ![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
 
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
-![Accessibility](https://img.shields.io/badge/Accessibility-Priority-FFB6C1?style=for-the-badge&logo=accessible-icon)
 
 #### Our app is currently undergoing beta testing on Android. To sign up, [**click here**](https://forms.gle/eNikmS3Znb9zGgyv9).
 
