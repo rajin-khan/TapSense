@@ -14,6 +14,8 @@
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
 ![Accessibility](https://img.shields.io/badge/Accessibility-Priority-FFB6C1?style=for-the-badge&logo=accessible-icon)
 
+#### Our app is currently undergoing beta testing on Android. To sign up, [**click here**](https://forms.gle/eNikmS3Znb9zGgyv9).
+
 </div>
 
 ---
