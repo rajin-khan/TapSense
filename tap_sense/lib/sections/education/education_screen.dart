@@ -97,7 +97,7 @@ class _EducationScreenState extends State<EducationScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Icon(Icons.add_a_photo_rounded, color: Colors.white),
+                    const Icon(Icons.add_a_photo_rounded, color: Colors.black),
                     Text(
                       'PICK IMAGE',
                       style: GoogleFonts.poppins(

@@ -79,7 +79,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   Future<void> fetchRoute(LatLng start, LatLng destination) async {
     const String apiKey =
-        'your api key here';
+        '5b3ce3597851110001cf6248311abb5d23bb42ec8b0a70fc8f59f8a7';
     const String baseUrl =
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
@@ -278,7 +278,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Icon(Icons.assistant_navigation, color: Colors.white),
+                      const Icon(Icons.assistant_navigation, color: Colors.orange),
                       Text(
                         'FETCH ROUTE',
                         style: GoogleFonts.poppins(
