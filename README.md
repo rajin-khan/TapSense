@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-2.0.0%20Beta-orange?style=for-the-badge&logo=semanticweb)
+![Version](https://img.shields.io/badge/Version-2.0.1%20Beta-orange?style=for-the-badge&logo=semanticweb)
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
 
 ![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter)
