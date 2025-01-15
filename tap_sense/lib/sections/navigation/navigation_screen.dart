@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:tap_sense/models/location_coordinates.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen(this.onRestart, {super.key});
@@ -78,8 +80,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
   }
 
   Future<void> fetchRoute(LatLng start, LatLng destination) async {
-    const String apiKey =
-        '5b3ce3597851110001cf6248311abb5d23bb42ec8b0a70fc8f59f8a7';
+    
+  final String? apiKey = dotenv.env['OPENROUTESERVICE_API_KEY'];
+  if (apiKey == null || apiKey.isEmpty) {
+    print('API key is missing or not set');
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('API key is not configured.')),
+    );
+    return;
+  }
+
     const String baseUrl =
         'https://api.openrouteservice.org/v2/directions/driving-car';
     final Dio dio = Dio();
