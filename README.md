@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/IXTcRvh.png" width="400"/>
+  <img src="./documentation/tslogo.png" width="400"/>
 </p>
 
 <h1 align="center">✨ An Accessibility App for the Visually Impaired ✨</h1>
