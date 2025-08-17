@@ -6,22 +6,30 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-2.0.1%20Beta-orange?style=for-the-badge&logo=semanticweb)
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
+![Version](https://img.shields.io/badge/Version-2.0.1%20Beta-orange?style=for-the-badge&logo=semanticweb) ![Contributions](https://img.shields.io/badge/Contributions-Welcome-crimson?style=for-the-badge&logo=git)
 
-![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter)
-![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-FFD700?style=for-the-badge&logo=google)
-![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple)
-![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
+![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter) ![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-FFD700?style=for-the-badge&logo=google) ![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple) ![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
 
-
-#### Our app is currently undergoing beta testing on Android. To sign up, [**click here**](https://forms.gle/eNikmS3Znb9zGgyv9).
+#### Our app is available Android, and will be published on the iOS App Store soon.
 
 </div>
 
 ---
 
 <div align="center">
+
+<div align="center">
+<a href="https://play.google.com/store/apps/details?id=com.rajinkhan.tap_sense">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://playbadges.pavi2410.me/badge/full?id=com.rajinkhan.tap_sense&theme=dark">
+    <img alt="TapSense on Google Play" src="https://playbadges.pavi2410.me/badge/full?id=com.rajinkhan.tap_sense">
+  </picture>
+</a>
+</div>
+
+*Get TapSense on Play Store now!*
+
+---
 
 ## **🌟 Overview**
 
