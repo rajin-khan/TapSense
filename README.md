@@ -10,7 +10,7 @@
 
 ![Flutter](https://img.shields.io/badge/Framework-Flutter-blue?style=for-the-badge&logo=flutter) ![Google ML Kit](https://img.shields.io/badge/AI-Google%20ML%20Kit-FFD700?style=for-the-badge&logo=google) ![iOS](https://img.shields.io/badge/Platform-iOS-white?style=for-the-badge&logo=apple) ![Android](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)
 
-#### Our app is available Android, and will be published on the iOS App Store soon.
+#### Our app is available on Android, and will be published on the iOS App Store soon.
 
 </div>
 
